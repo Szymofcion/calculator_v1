@@ -1,0 +1,88 @@
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  background-color: bisque;
+  overflow: hidden;
+}
+
+.calculator {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -ms-grid-columns: (80px)[5];
+      grid-template-columns: repeat(5, 80px);
+  -ms-grid-rows: minmax(120px, auto) (80px)[5];
+      grid-template-rows: minmax(120px, auto) repeat(5, 80px);
+  margin: 50px;
+  height: 100vh;
+  color: azure;
+}
+
+button {
+  cursor: pointer;
+  color: white;
+  background-color: gray;
+  border: 1px solid #2f4f4f;
+  font-size: 22px;
+  font-weight: 400;
+  -webkit-transition: background-color 0.1s;
+  transition: background-color 0.1s;
+}
+
+button:hover {
+  background-color: #2f4f4f;
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.result {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 5;
+  grid-column: 1/6;
+  background-color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  word-wrap: break-word;
+  word-break: break-all;
+  padding: 20px;
+}
+
+.previous-action {
+  font-size: 18px;
+}
+
+.current-action {
+  font-size: 24px;
+}
+
+.col-two {
+  grid-column: span 2;
+}
+
+.row-two {
+  grid-row: span 2;
+}
+/*# sourceMappingURL=style.css.map */
