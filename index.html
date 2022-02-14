@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ProEloEkstraKalkulator</title>
+    <title>Kalkulator</title>
     <script
       src="https://kit.fontawesome.com/6082582246.js"
       crossorigin="anonymous"
@@ -28,58 +28,59 @@
         >
       </nav>
     </header>
-
-    <div class="calculator calculator-advanced calculator-basic" id="advancedCalc">
-      <div class="result">
-        <div class="previous-action"></div>
-        <div class="current-action"></div>
+    <div class="conteiner">
+      <h1>Advanced calculator</h1>
+      <div
+        class="calculator calculator-advanced calculator-basic"
+        id="advancedCalc"
+      >
+        <div class="result">
+          <div class="previous-action"></div>
+          <div class="current-action"></div>
+        </div>
+        <button class="clear col-two">AC</button>
+        <button class="remove">&larr;</button>
+        <button class="operator operator-advanced">√</button>
+        <button class="operator operator-advanced">÷</button>
+        <button class="number">1</button>
+        <button class="number">2</button>
+        <button class="number">3</button>
+        <button class="operator operator-advanced">^</button>
+        <button class="operator operator-advanced">×</button>
+        <button class="number">4</button>
+        <button class="number">5</button>
+        <button class="number">6</button>
+        <button class="operator operator-advanced">%</button>
+        <button class="operator">-</button>
+        <button class="number">7</button>
+        <button class="number">8</button>
+        <button class="number n">9</button>
+        <button class="operator operator-advanced">!</button>
+        <button class="operator row-two">+</button>
+        <button class="number">.</button>
+        <button class="number">0</button>
+        <button class="sum col-two">=</button>
       </div>
-      <button class="clear col-two">AC</button>
-      <button class="remove">&larr;</button>
-      <button class="operator operator-advanced">√</button>
-      <button class="operator operator-advanced">÷</button>
-      <button class="number ">1</button>
-      <button class="number ">2</button>
-      <button class="number ">3</button>
-      <button class="operator operator-advanced">^</button>
-      <button class="operator operator-advanced">×</button>
-      <button class="number ">4</button>
-      <button class="number ">5</button>
-      <button class="number ">6</button>
-      <button class="operator operator-advanced">%</button>
-      <button class="operator">-</button>
-      <button class="number ">7</button>
-      <button class="number ">8</button>
-      <button class="number n">9</button>
-      <button class="operator operator-advanced">!</button>
-      <button class="operator row-two">+</button>
-      <button class="number">.</button>
-      <button class="number ">0</button>
-      <button class="sum col-two">=</button>
-    </div>
 
-    <!-- <div class="calculator calculator-basic" id="basicCalc">
-      <div class="result">
-        <div class="previous-action"></div>
-        <div class="current-action"></div>
+      <h1>Basic calculator</h1>
+      <div class="calculator calculator-basic" id="basicCalc">
+        <button class="clear row-two">AC</button>
+        <button class="number">1</button>
+        <button class="number">2</button>
+        <button class="number">3</button>
+        <button class="sum row-two">=</button>
+        <button class="number">4</button>
+        <button class="number">5</button>
+        <button class="number">6</button>
+        <button class="remove">&larr;</button>
+        <button class="number">7</button>
+        <button class="number">8</button>
+        <button class="number">9</button>
+        <button class="number">.</button>
+        <button class="operator col-two">+</button>
+        <button class="number">0</button>
+        <button class="operator col-two">-</button>
       </div>
-      <button class="clear row-two ">AC</button>
-      <button class="number">1</button>
-      <button class="number">2</button>
-      <button class="number">3</button>
-      <button class="sum row-two ">=</button>
-      <button class="number">4</button>
-      <button class="number">5</button>
-      <button class="number">6</button>
-      <button class="remove ">&larr;</button>
-      <button class="number">7</button>
-      <button class="number">8</button>
-      <button class="number">9</button>
-      <button class="number">.</button>
-      <button class="operator col-two">+</button>
-      <button class="number">0</button>
-      <button class="operator col-two">-</button>
-       -->
     </div>
     <script src="./main.js"></script>
   </body>

@@ -1,7 +1,7 @@
-const nav = document.querySelector('.nav');
-const navBtn = document.querySelector ('.hamburger')
-const basic = document.querySelector ('.nav-basic')
-const advanced= document.querySelector ('.nav-advanced')
+const nav = document.querySelector(".nav");
+const navBtn = document.querySelector(".hamburger");
+const basic = document.querySelector(".nav-basic");
+const advanced = document.querySelector(".nav-advanced");
 
 const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operator");
@@ -11,32 +11,33 @@ const sum = document.querySelector(".sum");
 const resultCurrent = document.querySelector(".current-action");
 const resultPrevious = document.querySelector(".previous-action");
 
-
 const handleNav = () => {
-  navBtn.classList.toggle('is-active')
-  nav.classList.toggle('nav--active')
-}
-navBtn.addEventListener('click', handleNav)
+  navBtn.classList.toggle("is-active");
+  nav.classList.toggle("nav--active");
+};
+navBtn.addEventListener("click", handleNav);
 
 const handleAdvanced = () => {
-  nav.classList.remove('nav--active')
-}
-advanced.addEventListener('click', handleAdvanced)
+  nav.classList.remove("nav--active");
+};
+advanced.addEventListener("click", handleAdvanced);
 
 const handleBasic = () => {
-  nav.classList.remove('nav--active')
-}
-basic.addEventListener('click', handleBasic)
-
-
-
+  nav.classList.remove("nav--active");
+};
+basic.addEventListener("click", handleBasic);
 
 let currentAction = "";
 let previousAction = "";
 let operation = undefined;
 
 const calculate = () => {
-  let action;
+  function silnia(current) {
+    if (current == 0 || current == 1) return 1;
+    else return current * silnia(current - 1);
+  }
+
+  let action = "";
 
   const previous = parseFloat(previousAction);
   const current = parseFloat(currentAction);
@@ -70,17 +71,14 @@ const calculate = () => {
       break;
     case "^":
       if (current <= 0 || previous <= 0) {
-        alert ('kalkulator obsługuje tylko liczby naturlane')
+        alert("kalkulator obsługuje tylko liczby naturalne");
         deleteResult();
         return;
       }
       action = Math.pow(previous, current);
       break;
     case "!":
-      if (current <= 0 || previous <= 0) {
-        alert ('kalkulator obsługuje tylko liczby naturlane')
-        deleteResult();
-        return;}
+      action = silnia(current);
       break;
     default:
       return;
@@ -109,7 +107,6 @@ const selectAction = (operator) => {
   previousAction = currentAction;
   currentAction = "";
 };
-
 
 const updateResult = () => {
   resultCurrent.innerText = currentAction;
@@ -152,8 +149,6 @@ operators.forEach((operator) => {
     updateResult();
   });
 });
-
-
 
 remove.addEventListener("click", () => {
   deleteNumber();
