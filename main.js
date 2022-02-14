@@ -1,3 +1,8 @@
+const nav = document.querySelector('.nav');
+const navBtn = document.querySelector ('.hamburger')
+const basic = document.querySelector ('.nav-basic')
+const advanced= document.querySelector ('.nav-advanced')
+
 const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operator");
 const clear = document.querySelector(".clear");
@@ -5,6 +10,26 @@ const remove = document.querySelector(".remove");
 const sum = document.querySelector(".sum");
 const resultCurrent = document.querySelector(".current-action");
 const resultPrevious = document.querySelector(".previous-action");
+
+
+const handleNav = () => {
+  navBtn.classList.toggle('is-active')
+  nav.classList.toggle('nav--active')
+}
+navBtn.addEventListener('click', handleNav)
+
+const handleAdvanced = () => {
+  nav.classList.remove('nav--active')
+}
+advanced.addEventListener('click', handleAdvanced)
+
+const handleBasic = () => {
+  nav.classList.remove('nav--active')
+}
+basic.addEventListener('click', handleBasic)
+
+
+
 
 let currentAction = "";
 let previousAction = "";
@@ -44,15 +69,23 @@ const calculate = () => {
       action = (previous / 100) * current;
       break;
     case "^":
+      if (current <= 0 || previous <= 0) {
+        alert ('kalkulator obsługuje tylko liczby naturlane')
+        deleteResult();
+        return;
+      }
       action = Math.pow(previous, current);
       break;
-    case "log":
-      action = Math.log(previous) / Math.log(current);
+    case "!":
+      if (current <= 0 || previous <= 0) {
+        alert ('kalkulator obsługuje tylko liczby naturlane')
+        deleteResult();
+        return;}
       break;
     default:
       return;
   }
-  currentAction = action;
+  currentAction = `${action}`;
   operation = undefined;
   previousAction = "";
 };
@@ -77,6 +110,7 @@ const selectAction = (operator) => {
   currentAction = "";
 };
 
+
 const updateResult = () => {
   resultCurrent.innerText = currentAction;
   if (operation != null) {
@@ -87,22 +121,22 @@ const updateResult = () => {
 };
 
 const addNumber = (number) => {
-  if (number === ",") {
-    if (currentAction.includes(",")) {
+  if (number === ".") {
+    if (currentAction.includes(".")) {
       return;
     }
   }
-  currentAction = currentAction.toString() + number.toString();
+  currentAction = `${currentAction}${number}`;
 };
 
 const deleteNumber = () => {
-  currentAction = currentAction.toString().slice(0, -1);
+  currentAction = currentAction.slice(0, -1);
 };
 
 const deleteResult = () => {
   currentAction = "";
   previousAction = "";
-  loperation = undefined;
+  operation = undefined;
 };
 
 numbers.forEach((number) => {
@@ -112,16 +146,18 @@ numbers.forEach((number) => {
   });
 });
 
-remove.addEventListener("click", () => {
-  deleteNumber();
-  updateResult();
-});
-
 operators.forEach((operator) => {
   operator.addEventListener("click", () => {
     selectAction(operator.innerText);
     updateResult();
   });
+});
+
+
+
+remove.addEventListener("click", () => {
+  deleteNumber();
+  updateResult();
 });
 
 sum.addEventListener("click", () => {

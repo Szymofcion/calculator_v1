@@ -9,11 +9,11 @@
 
 body {
   height: 100vh;
-  background-color: bisque;
-  overflow: hidden;
+  background: -webkit-gradient(linear, left bottom, right top, from(#b8915e), to(#c24d39));
+  background: linear-gradient(to top right, #b8915e, #c24d39);
 }
 
-.calculator {
+.calculator-advanced {
   display: -ms-grid;
   display: grid;
   -webkit-box-pack: center;
@@ -30,28 +30,50 @@ body {
   color: azure;
 }
 
+.calculator-basic {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -ms-grid-columns: (80px)[5];
+      grid-template-columns: repeat(5, 80px);
+  -ms-grid-rows: minmax(120px, auto) (80px)[5];
+      grid-template-rows: minmax(120px, auto) repeat(5, 80px);
+  margin: 50px;
+  height: 100vh;
+  color: azure;
+}
+
+.calculator-basic .operator-advanced {
+  display: none;
+}
+
 button {
   cursor: pointer;
   color: white;
-  background-color: gray;
-  border: 1px solid #2f4f4f;
+  background-color: #303030;
+  border: 1px solid #804707;
   font-size: 22px;
   font-weight: 400;
   -webkit-transition: background-color 0.1s;
   transition: background-color 0.1s;
+  border-radius: 10px;
 }
 
 button:hover {
-  background-color: #2f4f4f;
-  -webkit-transform: scale(1.05);
-          transform: scale(1.05);
+  background-color: #bb6708;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .result {
   -ms-grid-column: 1;
   -ms-grid-column-span: 5;
   grid-column: 1/6;
-  background-color: black;
+  background-color: #383737;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -68,6 +90,8 @@ button:hover {
   word-wrap: break-word;
   word-break: break-all;
   padding: 20px;
+  margin-bottom: 12px;
+  border-radius: 10px;
 }
 
 .previous-action {
@@ -84,5 +108,78 @@ button:hover {
 
 .row-two {
   grid-row: span 2;
+}
+
+.hamburger {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  z-index: 10;
+}
+
+.hamburger:hover {
+  background-color: #ffffff00;
+}
+
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+  background-color: white;
+  z-index: 10;
+}
+
+nav {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: -webkit-gradient(linear, left top, right bottom, from(#3a4b39), to(#0d0e0d));
+  background: linear-gradient(to right bottom, #3a4b39, #0d0e0d);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  -webkit-transition: transforma 0.3s;
+  transition: transforma 0.3s;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+}
+
+.nav--active {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+}
+
+a {
+  position: relative;
+  margin: 1em;
+  padding: 1em;
+  font-size: 25px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: white;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+  border: 1px solid #7dad74;
+  border-radius: 15px;
+}
+
+a:hover {
+  color: #7dad74;
 }
 /*# sourceMappingURL=style.css.map */
